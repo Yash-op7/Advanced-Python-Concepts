@@ -129,7 +129,14 @@ values = [x**2 for x in values if valid(x)]
 # print(values)
 
 # Dictionary comprehension
-pairs = [("a", 1), ("b", 2)] # a list of pairs or tuples
+# pairs = [("a", 1), ("b", 2)] # a list of pairs or tuples
 
-my_dict = {k:v for k, v in pairs}       # value unpacking, for this to work, each "pair" in pairs must have exactly 2 entities
-print(my_dict)
+# my_dict = {k:v for k, v in pairs}       # value unpacking, for this to work, each "pair" in pairs must have exactly 2 entities
+# print(my_dict)
+
+# Set comprehension
+
+nums = [1, 2, 3, 1, 3, 2, 4, 2, 1, 3]
+
+unique_nums = {x for x in nums}     # python will know that this should be a set because you don't have any keys
+print(unique_nums)  
