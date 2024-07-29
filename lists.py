@@ -40,4 +40,16 @@ myList = [x for x in range(10)]     # myList is [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 # slicedList = myList[::2]            # [0, 2, 4, 6, 8], step index, every second item, start with first, basically i=0;i<n;i+=2
 # slicedList = myList[::-1]           # nice way to reverse a list
 
-# copying a list
+# copying a list, shallow and deep
+
+original_list = [1, 2, 3, "banana"]
+copy_list = original_list   # shallow copy
+copy_list[2] = "bird"       # modifies the original
+print(copy_list)
+print(original_list)
+
+copy_list = original_list.copy()   # deep copy
+# or
+copy_list = list(original_list)     # also deep copy
+# or
+copy_list = original_list[:]        # also makes an actual copy, deep copy
