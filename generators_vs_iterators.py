@@ -46,3 +46,79 @@ while True:
     except StopIteration:
         print("done")
         break
+
+
+x = range(1, 11)
+
+print(x)        #  just prints the string representation of x: range(1, 11)
+# we cannot do next(x) directly, because it is not a iterator, for us to get the iterator from the range object we need to use a special method called iter() or .__iter__() dunder method
+
+# iter() and .__iter__() are identical in fucntionality
+
+
+print(next(iter(x)))
+print(next(iter(x)))
+for i in x: print(i)
+
+# so for i in x is same as for i in iter(x)
+
+# Define your own iterator using legacy syntax:
+class Iter:
+    def __init__(self, n):
+        self.n = n
+        self.current = 0
+    def __iter__(self):
+        self.current=0
+        return self
+    def __next__(self):
+        if self.current > self.n:
+            raise StopIteration
+        x = self.current
+        self.current+=1
+        return x
+    
+print("defining our own legacy iterator")
+
+myIter = Iter(5)
+
+# for i in myIter:
+#     print(i)
+
+print(next(myIter))
+print(next(myIter))
+print(next(myIter))
+
+iter2 = myIter.__iter__()
+print(next(iter2))
+
+# Create our own iterator using a generator which is a much more elegant and nicer way to define iterators compared to legacy iterators
+
+print("Generators")
+def gen(n):
+    for i in range(n):
+        yield i
+
+#! that's it!
+
+for i in gen(5):
+    print(i)
+
+# the way generators work is that when the yield i line is hit, it pauses the exectution of the function (gen(x)) and returns the value to whatever is iterating through this generator object and
+# when the yield code line is hit all the information about this function is saved in memory and the function executes from that checkpoint whenever the next() is encountered again, below is a more clearer way to visualize generators
+
+print("testing generator2")
+def gen():
+    yield 1
+    print("resuming after the first yield")
+    yield 2
+    print("resuming after the 3rd yield")
+    yield 3
+    print("stop iter")
+
+x = gen()
+cnt = 1
+for i in x:
+    print(f'current iteraton is {cnt}')
+    cnt+=1
+    print(i)
+    print(i, 'is finished so the iter is paused at statement => yield ',i)
