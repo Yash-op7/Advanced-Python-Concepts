@@ -42,14 +42,29 @@ myList = [x for x in range(10)]     # myList is [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 # copying a list, shallow and deep
 
-original_list = [1, 2, 3, "banana"]
-copy_list = original_list   # shallow copy
-copy_list[2] = "bird"       # modifies the original
-print(copy_list)
-print(original_list)
+# original_list = [1, 2, 3, "banana"]
+# copy_list = original_list   # shallow copy
+# copy_list[2] = "bird"       # modifies the original
+# print(copy_list)
+# print(original_list)
 
-copy_list = original_list.copy()   # deep copy
-# or
-copy_list = list(original_list)     # also deep copy
-# or
-copy_list = original_list[:]        # also makes an actual copy, deep copy
+# copy_list = original_list.copy()   # deep copy
+# # or
+# copy_list = list(original_list)     # also deep copy
+# # or
+# copy_list = original_list[:]        # also makes an actual copy, deep copy
+
+
+# List comprehension
+
+#! 1. Introduction
+# values = [x+1 for x in range(10)]       # [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+#! 2. Get all the even numbers from 0 to 50
+# values = [x for x in range(51) if x % 2 == 0]
+
+#! 3. String that strat with "a" and end in "y"
+values = ["any", "apple", "albany", "trolly", ""]
+values = [word for word in values if len(word) > 1 and word[0] == 'a' and word[-1] == 'y']
+
+print(values)
