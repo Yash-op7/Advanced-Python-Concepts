@@ -12,4 +12,3 @@ sum_of_squares = sum(x**2 for x in range(1, 1000001))       # space: O(1)
 sum2 = sum([x**2 for x in range(1000000)]) # is space: O(n)
 
 print(sum_of_squares, sum2)
-
