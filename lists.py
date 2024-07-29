@@ -64,7 +64,29 @@ myList = [x for x in range(10)]     # myList is [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 # values = [x for x in range(51) if x % 2 == 0]
 
 #! 3. String that strat with "a" and end in "y"
-values = ["any", "apple", "albany", "trolly", ""]
-values = [word for word in values if len(word) > 1 and word[0] == 'a' and word[-1] == 'y']
+# values = ["any", "apple", "albany", "trolly", ""]
+# values = [word for word in values if len(word) > 1 and word[0] == 'a' and word[-1] == 'y']
+# or a nicer syntax
+# values = [
+#     string
+#     for string in values
+#     if len(string) > 1
+#     if string[0] == 'a'
+#     if string[-1] == 'y'
+# ]
+
+#! 4. Nested list comprehension: Flattening a matrix (a list of lists) ⭐️
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+
+# this is the normal way
+# values = []
+# for list in matrix:
+#     for x in list:
+#         values.append(x)
+
+values = [
+    number for row in matrix for number in row
+]
+
 
 print(values)
