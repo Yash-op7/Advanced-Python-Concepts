@@ -25,7 +25,24 @@ y = map(lambda i: i**2, x) # ⭐️ An example of iterator, what the map functio
 print(next(y))  # output: 1
 print(next(y))  # output: 4
 
-for i in y:
-    print(i)         # this starts from 9
+# for i in y:
+#     print(i)         # this starts from 9
 
 # what happens in `for i in y` is that i = next(y), all the for loop does is call the next() function on the iterator to get the next item in the sequence
+
+# print(next(y))  #! this gives StopIteration error as we have already gone through the iterator y in the for loop
+
+# Also print(next(y)) is same as y.__next__() the dunder(double underscore) method on the object
+
+print("dunder method")
+print(y.__next__())
+
+# Example of for loop under the hood implementation
+print("starting raw for loop on iterator y")
+while True:
+    try:
+        value = next(y)
+        print(value)
+    except StopIteration:
+        print("done")
+        break
