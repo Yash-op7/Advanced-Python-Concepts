@@ -86,7 +86,50 @@ matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
 values = [
     number for row in matrix for number in row
+    # first for loop then the next for loop is inside the first and so on
 ]
 
+#! 5. Categorize numbers as even or odd (print odd or even for each number in a list)
+values = [x for x in range(10)]
+# ! Tip❕ -> for understanding list comprehensions always look on the left and the right side of the for loops, any nested loops go from left to right, when the if else is on the left of the for loop we check what value do we wanna add depending on the if else condition inside the for loop, whereas when the for loop is on the right we are trying to filter the list
+values = [
+    "Even" if x % 2 == 0 else "Odd" for x in range(10)
+    # ! this syntax ->     "Even" if x % 2 == 0 else "Odd" is valid in a lot of places in python, you can put it in variables
+]
 
-print(values)
+#! 6. Build a 3D list
+# make a 5x5x5 list with values from 1 to 5
+
+values = []
+# for x in range(5):
+#     list1 = []
+#     for y in range(5):
+#         list2 = []
+#         for z in range(5):
+#             list2.append(z+1)
+#         list1.append(list2)
+#     values.append(list1)
+
+values = [[[num+1 for num in range(5)] for _ in range(5)] for _ in range(5)]
+# look for the exterior most for loop, whatever is to its left will get added to the values[] array, and the meaning of this syntax: for _ in range(5) is that I want to do whatever is on the left of this for loop 5 times
+
+# ! Apply a function to each value
+def square(x):
+    return x*x
+
+def valid(x):
+    if x>=2:
+        return True
+    return False
+
+values = [1, 2, 3]
+values = [square(x) for x in values]
+values = [x**2 for x in values if valid(x)]
+
+# print(values)
+
+# Dictionary comprehension
+pairs = [("a", 1), ("b", 2)] # a list of pairs or tuples
+
+my_dict = {k:v for k, v in pairs}       # value unpacking, for this to work, each "pair" in pairs must have exactly 2 entities
+print(my_dict)
