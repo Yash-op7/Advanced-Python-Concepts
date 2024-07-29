@@ -122,3 +122,17 @@ for i in x:
     cnt+=1
     print(i)
     print(i, 'is finished so the iter is paused at statement => yield ',i)
+
+
+# when to use iterators/generators -> when you want to loop through a sequence at any point in time you only care for the current element in the loop, you dont care about the previous or the future values in the sequence so use generators or iterators to save memory
+
+# example of a good use case: say you want to check if a particular word exists in a very huge lines of 400GB, if you do it normally you would need to load the file in the code which wont be feasible so easily as the entire file must be brought to the memory or you may need to do some chunking or whatever, so what you can do is the following:
+def csv_reader(file_name):
+    for row in open(file_name, "r"):
+        yield row
+
+
+# Generaotr comprehension
+# one way to make a generator is using a function and a yield keyword, another is the following using normal parenthesis:
+x = (i for i in range(10))
+print(x)    # <generator object <genexpr> at 0x1020c0940>
