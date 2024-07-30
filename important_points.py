@@ -96,6 +96,9 @@ flag = False
 x = 1 if flag else 0
 # x = 2 > 3 ? 1 : 0 is NOT valid syntax
 print(x)
+age, smokes = 22, False
+health = "Bad" if age > 60 or smokes else ("good" if age < 30 else "okay")
+print("Your health is", health)
 
 # --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -142,3 +145,29 @@ dict1 = {'name': 'yash', 'willpower': 0.6}
 print(
     dict1.get('has_a_job', False)                   # change it ffs
 )
+
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#! Negative indexing -> range of indexes in python lists is -n to n-1
+nums = [x+1 for x in range(5)]
+last_element = nums[-1]
+first_element = nums[-1 * len(nums)]
+all_except_last = nums[:-1]
+reversed_nums = nums[::-1]
+# print(nums, last_element, first_element, all_except_last, reversed_nums, sep='\n')
+
+#! Inline swaps - no third temporary variable needed
+
+x = 10
+y = 20
+print("before swap", x, y)
+x, y = y, x
+print("after swap", x, y)
+
+# also
+
+x, y = 23, 41
+x, y = [3, 1]
+x, y = (3, 1)
+print(x, y)
+
