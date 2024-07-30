@@ -103,4 +103,10 @@ genders = ['female', 'male', 'male']
 
 #! this also automatically handle when one iterable object has more objects than the other
 
-#! 10. open()
+#! 10. open() - can be used to open a file, read to it, write to it, and more
+
+# this is how to properly use it
+
+file = open("test.txt", 'w')    #! there are many options, but the important ones are 'w' - write, 'r' - read, 'a' = append
+#! when you use 'w' it will overwrite a file if it already exists, essentially clear everything inside the file, so be careful with this
+file.write("hello\ni wanna die :)")
