@@ -1,2 +1,3 @@
 hello
-i wanna die :)
+this is an example of writing to an external file
+bye
