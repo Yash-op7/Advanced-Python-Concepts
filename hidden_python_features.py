@@ -50,3 +50,17 @@ def print_nums(a, b, c, d):
 
 lst = [1, 2,3 , 4]
 print_nums(*lst)
+
+#! 5. defaultdict for handling access to keys that dont exist in a dict with a default value
+
+from collections import defaultdict
+
+def default():
+    return 0
+
+char_count= defaultdict(default)
+string = 'adfijneiuwnkasdfnskjdfn'
+
+for char in string:
+    char_count[char]+=1
+print(char_count)

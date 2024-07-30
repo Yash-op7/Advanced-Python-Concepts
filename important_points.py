@@ -22,9 +22,13 @@ p2 = Point(3, 3)
 print(p1)
 print(p1 == p2)
 
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 #! 2. Type hints
 def total_cost(self) -> float:  #! this return float is a type hint, its not enforced in python that is the method can still return anything but this is used to have better autocomplete and readablitiy
     return unit_price * quantity # ignore this
+
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #! Closures - A closure is a nested function that acts as a value from the outside function
 def adder(value):
@@ -38,6 +42,8 @@ adder_5 = adder(5)      #! this adder(5) returns a function that adds 5 to any v
 print(adder_5(10))
 
 #! we can use this to create different versions of an inside function dynamically
+
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 #! Decorators: a function that modifies another function
 # example of a custom decorator function
@@ -55,9 +61,9 @@ def func(list1, mod=2):
 
 print(func([2, 3, 4, 5, 19, 28, 45], mod=9)) #! this is equivalent to func = custom_decorator(func)
 #! so the decorator is just the shorthand syntax for passing a func to another func
-
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #! nonlocal keyword, used to modify variables outside the inner function in function closure from inside the inner functions kind of like function hoisting in js, i think
-
+# --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 #! Function annotations -> better readability and documentation doesn't actually change teh code behavior though like typescript
 # simple example
 def greet(name: str) -> str:
@@ -73,3 +79,15 @@ def find_max(data: Optional[List[int]] = None) -> Optional[int]:
     if data:
         return max(data)
     return None
+
+# ! Object Multiplication
+x = "hello"*5
+x = [1, 2] * 5                  # [1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
+x = [(1, 2)] * 5                # [(1, 2), (1, 2), (1, 2), (1, 2), (1, 2)]
+x = (1, 2) * 5                  # (1, 2, 1, 2, 1, 2, 1, 2, 1, 2)
+# print(x)
+
+# ! Ternary
+flag = False
+x = 1 if flag else 0
+print(x)
