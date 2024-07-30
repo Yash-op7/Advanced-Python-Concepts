@@ -30,17 +30,52 @@
 
 #! 4. map() function: allows us to apply a function to every single item in an iterable object like a list, string, tuple, dict, set
 strings = ["I", 'am', "focussed", "and", "determined", "to", "win", "🔥"]
-lengths = map(len, strings)
-print(list(lengths))
+# lengths = map(len, strings)
+# print(list(lengths))
 
-def add_emoji(str):
-    return str + '🎇'
+# def add_emoji(str):
+#     return str + '🎇'
 
-print(list(map(add_emoji, strings)))
+# print(list(map(add_emoji, strings)))
 
 # syntax: map(function_name, iterable_object) -> returns an iterator which can be used to get the sequence
 
 #! 5. Lambda functions! - a one line anonymous fuctino
-strings2 = map(lambda word: word + "🦈", strings)
-print(list(strings2))
+# strings2 = map(lambda word: word + "🦈", strings)
+# print(list(strings2))
+
+# #! 6. filter() function - it will take every single item in the iterable object and pass it to a comparable function, if it returns true it will keep the item otherwise it will remove it from the resutl
+# filtered_list = filter(lambda word: len(word) > 4, strings)
+# print(list(filtered_list))
+
+# #! 7. sum() - returns the sum of all the numbers from an iterable object.
+# nums = [1, 2, 4.5, 3]
+# print(sum(nums))
+# #! `start` arguement
+# print(sum(nums, start=-10))
+
+# #! 8. sorted() - sort an iterable object in a given order
+# sorted_nums = sorted(nums)
+# sorted_nums = sorted(nums, reverse=True)
+# print(sorted_nums)
+
+# #! custom sort - `key` arguement
+# people = [
+#     {"name":"alice", "age":30},
+#     {"name":"bob", "age":3},
+#     {"name":"tom", "age":5},
+#     {"name":"john", "age":19},
+# ]
+# # sorted_people = sorted(people)      #! gives error
+# sorted_people = sorted(people, key = lambda person: person["age"], reverse=True)
+# print(sorted_people)
+
+#! 9. enumerate() -> return a tuple of index and value for every single object
+tasks = ['study', 'rest', 'exercise', 'sleep', 'eat healthy']
+
+for index, value in enumerate(tasks):
+    print(f'{index+1}. {value}')
+
+tuples = [(1, 2), (2, 3), (3, 4)]
+print(list(enumerate(tasks)))       #! prints a list of tuples
 
