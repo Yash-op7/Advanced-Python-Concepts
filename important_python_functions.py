@@ -70,12 +70,37 @@ strings = ["I", 'am', "focussed", "and", "determined", "to", "win", "🔥"]
 # sorted_people = sorted(people, key = lambda person: person["age"], reverse=True)
 # print(sorted_people)
 
-#! 9. enumerate() -> return a tuple of index and value for every single object
-tasks = ['study', 'rest', 'exercise', 'sleep', 'eat healthy']
+# #! 9. enumerate() -> return a tuple of index and value for every single object
+# tasks = ['study', 'rest', 'exercise', 'sleep', 'eat healthy']
 
-for index, value in enumerate(tasks):
-    print(f'{index+1}. {value}')
+# for index, value in enumerate(tasks):
+#     print(f'{index+1}. {value}')
 
-tuples = [(1, 2), (2, 3), (3, 4)]
-print(list(enumerate(tasks)))       #! prints a list of tuples
+# tuples = [(1, 2), (2, 3), (3, 4)]
+# print(list(enumerate(tasks)))       #! prints a list of tuples
 
+#! 10. zip() - when you have two or more data structures with corresponding values and wanna iterate on them simultaneously
+#! combine different iterable objets together
+names = ['alice', 'bob', 'carl']
+ages = [10, 20, 30, 99]
+genders = ['female', 'male', 'male']
+
+# # normal way
+# for idx in range(min(len(names), len(ages))):
+#     print(f'{names[idx]} is {ages[idx]}')
+
+# # better way
+# combined = list(zip(names, ages, genders))
+# for name, age, gender in combined:
+#     print(f'{name} is {age} and is a {gender}')
+# # or
+# combined = zip(names, ages, genders)
+# for name, age, gender in combined:
+#     print(f'{name} is {age} and is a {gender}')
+# # or
+# for name, age, gender in zip(names, ages, genders):
+#     print(name, gender, age)
+
+#! this also automatically handle when one iterable object has more objects than the other
+
+#! 10. open()
