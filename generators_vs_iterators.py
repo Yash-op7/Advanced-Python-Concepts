@@ -28,7 +28,7 @@ print(next(y))  # output: 4
 # for i in y:
 #     print(i)         # this starts from 9
 
-# what happens in `for i in y` is that i = next(y), all the for loop does is call the next() function on the iterator to get the next item in the sequence
+#! what happens in `for i in y` is that i = next(y), all the for loop does is call the next() function on the iterator to get the next item in the sequence
 
 # print(next(y))  #! this gives StopIteration error as we have already gone through the iterator y in the for loop
 
