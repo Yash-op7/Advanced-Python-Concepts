@@ -57,3 +57,19 @@ print(func([2, 3, 4, 5, 19, 28, 45], mod=9)) #! this is equivalent to func = cus
 #! so the decorator is just the shorthand syntax for passing a func to another func
 
 #! nonlocal keyword, used to modify variables outside the inner function in function closure from inside the inner functions kind of like function hoisting in js, i think
+
+#! Function annotations -> better readability and documentation doesn't actually change teh code behavior though like typescript
+# simple example
+def greet(name: str) -> str:
+    return f'Hello, {name}'
+
+# more advanced types examples
+from typing import List, Tuple, Optional
+
+def process_data(data: List[int]) -> Tuple[int, List[int]]:
+    return (min(data), list(max(data)))
+
+def find_max(data: Optional[List[int]] = None) -> Optional[int]:
+    if data:
+        return max(data)
+    return None
