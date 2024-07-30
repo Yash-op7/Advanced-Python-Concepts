@@ -21,3 +21,7 @@ p1 = Point(1, 2)
 p2 = Point(3, 3)
 print(p1)
 print(p1 == p2)
+
+#! 2. Type hints
+def total_cost(self) -> float:  #! this return float is a type hint, its not enforced in python that is the method can still return anything but this is used to have better autocomplete and readablitiy
+    return unit_price * quantity # ignore this
