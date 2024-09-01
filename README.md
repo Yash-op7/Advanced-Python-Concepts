@@ -5,8 +5,9 @@
 - A collection datatype
 - ordered
 - mutable
+- can have different data types
 - allows duplicate elements
-    
+
     ```python
     myList = ["apple", "dog", 5, True]
     myList2 = list()         # []
