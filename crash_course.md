@@ -83,3 +83,78 @@ print(list(x.keys()))
     - `x = {i:i*i for i in range(10)}`
     - `x = {i**3 for i in range(5)}`
     - `x = tuple(i for i in range(5))` ❗️ Note because `x = (i for i in range(5))` returns a generator object
+
+# Functions
+```python
+def func():
+    print('run')
+    def func2():
+        print('inside')
+    func2()
+func()
+```
+- can return multiple items, which would be returned in a tuple which can be unpacked:
+```python
+def func():
+    return 4, 5, 2, [12, 3, (3)]
+x = func()[2]
+# OR
+w, x, y, z = func()
+```
+- functions are objects, which can be returned
+
+```python
+def func(x):
+    def func2():
+        print(x)
+    return func2
+
+x = func(3)     # x stores a function object
+print(x)        # <function func.<locals>.func2 at 0x7efc0eb393a0>
+x()             # calling the function
+```
+
+# ⭐️ unpack operator - `*`
+It seperates all the elements from a collection into individual elements, 
+```python
+x = [1, 2, 3, 4]
+print(*x)
+# this will be equivalent to below code
+print(x[0], x[1], x[2], x[3])
+```
+here is a great example:
+```python
+def func(x, y):
+    print(x+y)
+
+pairs = [(1, 2), (3, 4)]
+
+for pair in pairs:
+    func(pair[0], pair[1])  # ❌ Bad way to do this
+    func(*pair)     # ✅ do this instead
+    
+```
+⭐️ You can also use this `*` unpack operator on dicts as well, but you have to use `**`:
+```python
+def func(x, y):
+    print(x+y)
+
+func(**{'y': 5, 'x': 2})    # order of keys doesn't matter as long as the keys match the arguement names
+
+a = 'x'
+b = 'y'
+func(**{a: 1, b: 4})
+```
+❗️ Note: you cannot have more or less keys in the dictionary as the entire dict is unpacked and passed to the func
+
+# `*args` and `**kwargs`
+So now that we understand `*` and `**` operators, we basically know how `*args` and `**kwargs` work
+
+```python
+def func(*args, **kwargs):
+    print(args, kwargs)
+    
+func(1, 2, 3, 4, one='hello', two='world', three=2.9021)
+# Output: (1, 2, 3, 4) {'one': 'hello', 'two': 'world', 'three': 2.9021}
+```
+Inside `func` you can then upack the args and kwargs into individual elements and use them
