@@ -157,4 +157,102 @@ def func(*args, **kwargs):
 func(1, 2, 3, 4, one='hello', two='world', three=2.9021)
 # Output: (1, 2, 3, 4) {'one': 'hello', 'two': 'world', 'three': 2.9021}
 ```
-Inside `func` you can then upack the args and kwargs into individual elements and use them
+Inside `func` you can then upack the args and kwargs into individual variables and use them
+
+# Scope and globals
+`global` keyword:
+
+    - never use this, but its good to know
+```python
+x = 'orange'
+def func(new_value):
+    global x
+    x = new_value
+
+print(x)
+func('apple')
+print(x)
+```
+
+# Exceptions
+## Raise Exceptions
+```python
+raise Exception("Something went wrong!")
+# Output
+Exception: Something went wrong!
+    raise Exception("Something went wrong!")
+Line 1 in <module> (Solution.py)
+
+```
+- this is a base class you can extend it and do more
+
+## try catch
+```python
+try:
+    x = 7/0
+except Exception as e:
+    print(e)
+# continue on with the rest of the program
+```
+
+## try catch finally
+```python
+try:
+    x = 7/0
+except Exception as e:
+    print(e)
+finally:
+
+```
+`finally` - this block will run no matter what, usually does cleanup after whatever you did in try or except, for example you try to write to a file, some exception occured halfway but you still need to close the file so put that in finally.
+
+# Lambda
+- A one line anonymous function
+
+for example:
+
+`x = lambda x: x + 5`
+`print(x(4))`
+or
+```python
+x = lambda x, y: x + y
+
+print(x(10, 30))
+```
+
+This is not a advisable way to use lambdas, see how they are used below, in the map and filter function:
+
+`map(func, collection)` - `map()` will take all of the elements in a list and use a function to map them to a new value which makes a new list
+
+```python
+x = [1, 2, 3, 4, 5, 2, 4, 6, 2, 10, 3]
+map_obj = map(lambda i: i+2, x)
+print(list(map_obj))
+```
+
+`filter(boolean_func, iterable)` - in `filter()` the function passed to it maps each value to a boolean which implies whether to include the value in the new list 
+
+```python
+filter_obj = filter(lambda i: i%2 == 0, x)
+print(list(filter_obj))
+
+# OR
+
+def func(i):
+    i = 2*i + 3*math.sqrt(i+10)     # some extra logic
+    return i%2==0
+filter_obj = filter(func, x)
+print(list(filter_obj))
+```
+
+
+# F strings
+- only in python >= 3.6
+```python
+name='yash'
+x = f'hello {6+8} {name}'
+print(x)
+```
+
+# OOP
+- every variable in python is an object of some class
