@@ -256,3 +256,8 @@ print(x)
 
 # OOP
 - every variable in python is an object of some class
+- different between methods and function is that we need obj.method(), functions can be invoked directly
+
+# Best Practices
+1. Don't do manual string formatting with the `+` operator, instead use `f''` or f strings.
+2. 
