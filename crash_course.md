@@ -260,4 +260,33 @@ print(x)
 
 # Best Practices
 1. Don't do manual string formatting with the `+` operator, instead use `f''` or f strings.
-2. 
+2. Don't manually close files, use `with`, because it will ensure the file is closed even if there is an exception
+3. Any use of default mutable arguements, arguement defaults are defined when the function is defined not when its run, so if there is a default arguement like l=[], any function invocation which modifies l will persist.
+4. instead of equality you should check for identity:
+```python
+if x is None:
+    pass
+if x is True:
+    pass
+if x is False:
+    pass
+```
+5. use `enumerate` AND/OR `zip`
+```python
+a = [1, 2, 3]
+b = [4, 5, 6]
+for i, (av, bv) in enumerate(zip(a, b)):
+    ...
+```
+
+6. Default dict loop is over keys, so just do:
+`for key in dict1:
+    ...`\
+    also:
+    `for k, v in dict.items():
+    ...`
+
+7. Don't use time.time() to measure how fast your code runs, instead use:
+![alt text](image.png)
+
+8.
