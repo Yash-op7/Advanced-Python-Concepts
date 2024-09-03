@@ -578,4 +578,67 @@ print(f'{quantity = }')
 - `is` v/s `==`
     - `is` checks if the `id` of the two objects is the same, whereas `==` checks if the values in those objects is the same
 
+# Readability tips
+- Naming Conventions: Use `snake_case` for variables and functions, and `CamelCase` for classes.
+- Docstrings, example:
+```python
+def binary_search(arr: list[int], target: int) -> int:
+    """
+    Perform binary search on a sorted list.
+
+    :param arr: A list of integers sorted in ascending order.
+    :param target: The integer value to search for.
+    :return: The index of the target if found, otherwise -1.
+    """
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        mid = (left + right) // 2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+            left = mid + 1
+        else:
+            right = mid - 1
+    return -1
+```
+- Use comments to explain `why` you're doing something instead of `what` you're doing.
+- Use list comprehensions, enumerate(), zip() and generators
+- use type annotations
+- better naming, avoid single letter and vague variable names, avoid names like sum and ans
+- write modular code and functions:
+    - Single Responsibility Principle
+    - use helper functions to break down huge function
+- good error handling
+- writing tests
+    - Unit Tests: Write unit tests for your functions. 
+    - Use `assert` Statements: Use assertions to check your assumptions within the code.
+    - example
+    ```python
+    def test_binary_search():
+        assert binary_search([1, 2, 3, 4, 5], 3) == 2
+        assert binary_search([1, 2, 3, 4, 5], 6) == -1
+    ```
+- avoid premature optimization, write clear code first then optimize
+- use context managers
+- smart looping, avoid indexing (eg. avoid `range(len(arr))`)
+
+## Personal mistakes corrections:
+- better looping
+```python
+# instead of doing
+while k > 0:
+    # something
+
+    k -= 1
+
+# better do
+for _ in range(k):
+    # something
+```
+- sum() function
+- reduce() function
+- for _ in range(k):
+        numeric_string = str(sum(map(int, numeric_string)))
+
+
 # Encapuslation
