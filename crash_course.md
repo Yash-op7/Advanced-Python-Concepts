@@ -315,3 +315,11 @@ The above function returns nothing and accepts a string.
 dunder methods for string representation of obj and adding two objects, and how to use type annotations in methods for objects of the same class using `Self` by importing `from typing import Self`
 
 # 5 Good Python Habits
+
+## 1. `if __name__ == '__main__':`
+If you have a module.py with a function that you import in another script, without the presence of this in module.py, its code will run whenever you import it elsewhere
+
+This also shows to a reader that this script was meant to be run at some point, rather than just existing for beign imported.
+
+## 2. define a main() method to define a standard entrypoint:
+![alt text](image-9.png)
