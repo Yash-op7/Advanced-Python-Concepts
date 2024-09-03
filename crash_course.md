@@ -517,7 +517,41 @@ def upload(file: str, *, quality: Quality, privacy: Privacy) -> None:
 ```
 ## 5. Make use of `*args` and `**kwargs`
 
-# useful `str` methods
+# Python str tutorial
+## Basic string operations:
+- concatenation using `+`
+- indexing and slicing
+- repetition, `*`
+## String case methods:
+- `.upper()`
+- `.lower()`
+- `.capitalize()`
+- `.title()`
+## String search methods:
+- `.find(substr) -> int and -1 if not found`
+- `.rfind(substr) -> int`
+- `.index(substr) -> int, and ValueError if not found`
+- `.rindex(substr) -> int`
+- `.startswith(prefix) -> bool`
+- `.endswith(suffix) -> bool`
+## String modification methods:
+- `str.replace(substr, new_substr)`
+- `delimiter.join(iterable)`
+- `str.strip()`
+## String split and partition methods:
+- `str.split(sep=' ', maxsplit=2) -> `
+- `str.partition(' ') -> tuple[str]` - returns a list of str which is the original str partitioned into 3 substr
+## String checker
+- `isalnum()`
+- `isdigit()`
+- `isalpha() -> bool`
+## String functions
+- `len(str) -> int`
+- `ord(char) -> int`
+- `chr(int) -> char`
+- `str(123) -> str`
+
+## Useful `str` methods
 1. `find(substring)` -> returns the index of the first occurrence of the substr and `string1.rfind(substr)`
 2. `isalnum()`
 3. `isalpha()`
