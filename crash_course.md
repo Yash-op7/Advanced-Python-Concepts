@@ -472,6 +472,14 @@ def get_users() -> dict[int, str]:
 ```
 ## 3. Add Docstrings
 
+## 4. Make parameters to be mandatorily passed as named, i.e. enforcing keyword arguement function invocation behavior
+```python
+# every arguement after the `*` is mandatorily a keyword arguement
+def upload(file: str, *, quality: Quality, privacy: Privacy) -> None:
+    print(f'something {file} ...')
+```
+## 5. Make use of `*args` and `**kwargs`
+
 # useful `str` methods
 1. `find(substring)` -> returns the index of the first occurrence of the substr and `string1.rfind(substr)`
 2. `isalnum()`
@@ -488,3 +496,5 @@ print(text.partition('='))
 Output: `('a+b', '=', 'c')`
 
 6. `str.split(sep=' ', maxsplit=2)`
+
+# Encapuslation
