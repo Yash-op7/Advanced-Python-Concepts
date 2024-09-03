@@ -160,7 +160,25 @@ func(1, 2, 3, 4, one='hello', two='world', three=2.9021)
 Inside `func` you can then upack the args and kwargs into individual variables and use them
 
 # Scope and globals
+There are four levels of scope in Python:
+1. Local scope:
+    - Variables defined inside a function.
+    - Accessible only within that function.
+
+2. Enclosing scope:
+    - Refers to the scope of any enclosing function (functions defined inside other functions).
+    - Variables from the enclosing function can be accessed in the nested function but cannot be directly modified without the `nonlocal` keyword.
+    - Without `nonlocal`, assigning a value to a variable inside a nested function would create a new local variable, leaving the enclosing variable unchanged.
+
+
+3. Global scope:
+- Variables defined at the top level of a script or module or explicitly declared with the global keyword.
+- Accessible from any part of the program after their definition.
+4. Built-in scope:
+
+
 `global` keyword:
+
     - used to refer to objects in the global namespace
     - never use this, but its good to know
 ```python
@@ -173,6 +191,9 @@ print(x)
 func('apple')
 print(x)
 ```
+`nonlocal` keyword:
+
+
 
 # Exceptions
 ## Raise Exceptions
