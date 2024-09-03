@@ -633,7 +633,7 @@ def binary_search(arr: list[int], target: int) -> int:
 
 ## Common mistakes to avoid for writing bug free code
 - Dont modify the list while iterating through it
-- `is` checks for identity or `id` and `==` checks for value equality
+- `is` checks for identity or `id` value and `==` checks for value equality
 
 
 ## Personal mistakes/inefficiencies corrections:
