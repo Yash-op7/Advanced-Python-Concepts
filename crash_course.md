@@ -471,3 +471,18 @@ def get_users() -> dict[int, str]:
     return {1: 'bob'}
 ```
 ## 3. Add Docstrings
+
+# useful `str` methods
+1. `find(substring)` -> returns the index of the first occurrence of the substr and `string1.rfind(substr)`
+2. `isalnum()`
+3. `isalpha()`
+4. `delimiter_string.join()`:
+```python
+print('$'.join(['Today', 'is', 'Tuesday']))
+```
+5. `str.partition()`
+```python
+text: str = 'a+b=c'
+print(text.partition('='))
+```
+Output: `('a+b', '=', 'c')`
