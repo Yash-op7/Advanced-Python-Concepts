@@ -336,3 +336,15 @@ This also shows to a reader that this script was meant to be run at some point, 
 
 ## 5. List Comprehensions
 ![alt text](image-11.png)
+
+# Uncommon epic python features
+## 1. Slice Objects
+![alt text](image-13.png)
+
+## 2. Set operations
+```python
+set_a: set[int] = {1, 2, 3, 4, 5}
+set_b: set[int] = {4, 5, 6, 7, 8}
+
+print(set_a | set_b)
+```
