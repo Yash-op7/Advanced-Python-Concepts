@@ -346,5 +346,40 @@ This also shows to a reader that this script was meant to be run at some point, 
 set_a: set[int] = {1, 2, 3, 4, 5}
 set_b: set[int] = {4, 5, 6, 7, 8}
 
-print(set_a | set_b)
+print("Set union", set_a | set_b)
+print("Set difference", set_a - set_b)
+print("Set intersection", set_a & set_b)
+print("Unique elements or Symmetric difference or A⋃B - A⋂B", set_a ^ set_b)
 ```
+## 3. Walrus 
+The walrus operator assigns a value to a variable while simultaneously returning that value.
+
+```python
+users: dict[int, str] = {0: 'Bob', 1: 'Mario'}
+
+if user := users.get(3):
+    print(f'{user} exists!')
+else:
+    print('No user with the given key')
+
+# This is same as
+
+users: dict[int, str] = {...}
+
+user: str | None = users.get(3)
+
+if user:
+    ...
+else:
+    ...
+```
+Another example:
+```python
+if (n := len(my_list)) > 10:
+    print(f"The list is too long! It has {n} elements.")
+```
+
+The walrus operator first evaluates the experssion then performs the check, another example:
+![alt text](image-14.png)
+
+
