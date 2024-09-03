@@ -161,7 +161,7 @@ Inside `func` you can then upack the args and kwargs into individual variables a
 
 # Scope and globals
 `global` keyword:
-
+    - used to refer to objects in the global namespace
     - never use this, but its good to know
 ```python
 x = 'orange'
@@ -449,4 +449,4 @@ print(triple(2))
 def get_users() -> dict[int, str]:
     return {1: 'bob'}
 ```
-## 3. 
+## 3. Add Docstrings
