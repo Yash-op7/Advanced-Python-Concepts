@@ -577,6 +577,15 @@ print(f'{quantity = }')
 ```
 - `is` v/s `==`
     - `is` checks if the `id` of the two objects is the same, whereas `==` checks if the values in those objects is the same
+## Immutable types in python
+The following types are immutable and any attempt to modify their objects results in a new object's creation. This immutability is why, for example, strings and tuples are hashable and can be used as keys in dictionaries or elements in sets,
+- int
+- float
+- bool
+- str
+- tuple
+- frozenset
+- bytes
 
 # Readability tips
 - Naming Conventions: Use `snake_case` for variables and functions, and `CamelCase` for classes.
@@ -621,6 +630,11 @@ def binary_search(arr: list[int], target: int) -> int:
 - avoid premature optimization, write clear code first then optimize
 - use context managers
 - smart looping, avoid indexing (eg. avoid `range(len(arr))`)
+
+## Common mistakes to avoid for writing bug free code
+- Dont modify the list while iterating through it
+- `is` checks for identity or `id` and `==` checks for value equality
+
 
 ## Personal mistakes/inefficiencies corrections:
 - better looping
