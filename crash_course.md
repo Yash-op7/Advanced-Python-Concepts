@@ -256,7 +256,45 @@ print(x)
 
 # OOP
 - every variable in python is an object of some class
-- different between methods and function is that we need obj.method(), functions can be invoked directly
+- different between methods and function is that we need obj.method(), functions can be invoked directly (without `.` opertaor on some obj)
+
+- define a class name with CamelCase
+```python
+class Microwave:
+    def __init__(self, brand: str, power_rating: str) -> None:
+        self.brand = brand
+        self.power_rating = power_rating
+        self.turned_on: bool = False
+    
+    def turn_on(self) -> None:
+        if self.turned_on:
+            print(f'Microwave ({self.brand}) is already turned on.')
+        else:
+            self.turned_on = True
+            print(f'Mircrove ({self.brand}) is now turned on.')
+
+    def turn_off(self) -> None:
+        if self.turned_on:
+            self.turned_on = False
+            print(f'Microwave ({self.brand}) is now turned off.')
+        else:
+            print(f'Mircrove ({self.brand}) is already off.')
+
+smeg: Microwave = Microwave('Smeg', 'B')
+
+smeg.turn_on()
+smeg.turn_on()
+
+smeg.turn_off()
+smeg.turn_off()
+```
+
+### Dunder Methods:
+1. `__add__(self, other)`
+2. `__mult__(self, other)` - # print(obj1 * obj2)
+3. `__str__(self) -> str` - for user friendly
+4. `__repr__(self) -> str` - for devs
+
 
 # Best Practices
 1. Don't do manual string formatting with the `+` operator, instead use `f''` or f strings.
@@ -399,6 +437,16 @@ print(triple(2))
 ```
 
 # Bad habits
-## 1. Bare except block in try catch, be specific
+## 1. dont use Bare except block in try catch, be specific
 ## 2. For default arguements which can take mutable types like lists, sets, dicts, dont do `l=[]` in the default param definition of the function instead always use `l=None` and then initialize it in the body by checking if its None to an empty list.
 ## 3. Whenever you get an object returned of the following three types: `range`, `map` or `filter` DO NOT convert them to a list or tuple unless absolutely necessary, you can try workign with these objects directly as they are extremely memory efficient.
+
+
+# 5 tips to write better python functions
+## 1. insted of `pass` use `raise NotImplementedError('find_next_prime() is missing code.')
+## 2. Write function return type for better readability:
+```python
+def get_users() -> dict[int, str]:
+    return {1: 'bob'}
+```
+## 3. 
