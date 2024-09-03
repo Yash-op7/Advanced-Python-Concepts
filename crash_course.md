@@ -383,3 +383,22 @@ The walrus operator first evaluates the experssion then performs the check, anot
 ![alt text](image-14.png)
 
 
+## Currying
+```python
+from typing import Callable
+
+def multiply_setup(a: float) -> Callable:
+    def multiply(b: float) -> float:
+        return a*b
+    return multiply
+
+triple: Callable = multiply_setup(3)
+
+print(triple(41))
+print(triple(2))
+```
+
+# Bad habits
+## 1. Bare except block in try catch, be specific
+## 2. For default arguements which can take mutable types like lists, sets, dicts, dont do `l=[]` in the default param definition of the function instead always use `l=None` and then initialize it in the body by checking if its None to an empty list.
+## 3. Whenever you get an object returned of the following three types: `range`, `map` or `filter` DO NOT convert them to a list or tuple unless absolutely necessary, you can try workign with these objects directly as they are extremely memory efficient.
