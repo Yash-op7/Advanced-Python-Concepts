@@ -622,7 +622,7 @@ def binary_search(arr: list[int], target: int) -> int:
 - use context managers
 - smart looping, avoid indexing (eg. avoid `range(len(arr))`)
 
-## Personal mistakes corrections:
+## Personal mistakes/inefficiencies corrections:
 - better looping
 ```python
 # instead of doing
