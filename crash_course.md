@@ -534,4 +534,14 @@ Output: `('a+b', '=', 'c')`
 
 6. `str.split(sep=' ', maxsplit=2)`
 
+# Important points:
+- `f string` trick:
+```python
+quantity = 239
+print(f'{quantity = }')
+# Output: quantity = 239
+```
+- `is` v/s `==`
+    - `is` checks if the `id` of the two objects is the same, whereas `==` checks if the values in those objects is the same
+
 # Encapuslation
