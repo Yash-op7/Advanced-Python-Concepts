@@ -486,3 +486,5 @@ text: str = 'a+b=c'
 print(text.partition('='))
 ```
 Output: `('a+b', '=', 'c')`
+
+6. `str.split(sep=' ', maxsplit=2)`

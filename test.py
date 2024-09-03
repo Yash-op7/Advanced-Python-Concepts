@@ -1,4 +1,4 @@
-text: str = 'today is tuesday and the time is 1:20:20 🤩'
+s = 'zbax'
 
-print(text.split(sep=' '))
-print(list(text))
+converted_string = ''.join([str(ord(c) - ord('a') + 1) for c in s])
+print(converted_string)
