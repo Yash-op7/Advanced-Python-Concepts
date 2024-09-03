@@ -323,3 +323,16 @@ This also shows to a reader that this script was meant to be run at some point, 
 
 ## 2. define a main() method to define a standard entrypoint:
 ![alt text](image-9.png)
+
+## 3. Keep your functions as simple and reusable as possible, never convolute your func with too much code, and always try to seperate concerns, so you can make your code as reusable as possible
+
+## 4. Type Annotations
+ ![alt text](image-10.png)
+ advantages:
+- better readability
+- to use the code you don't need to see the documentation
+- catch exceptions early due to type mismatches and undefined behavior, like calling .upper() for int
+- get context actions in IDEs
+
+## 5. List Comprehensions
+![alt text](image-11.png)
