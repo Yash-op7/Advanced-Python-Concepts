@@ -471,6 +471,43 @@ def get_users() -> dict[int, str]:
     return {1: 'bob'}
 ```
 ## 3. Add Docstrings
+```python
+class Solution:
+    def getLucky(self, s: str, k: int) -> int:
+        """
+        Convert the string s into an integer by replacing each letter with its position in the alphabet.
+        Perform the digit sum transformation k times and return the final result.
+
+        :param s: Input string consisting of lowercase English letters.
+        :param k: Number of times to apply the digit sum transformation.
+        :return: Resulting integer after k transformations.
+        """
+        # Convert the string to a numeric string based on alphabet positions.
+        numeric_string = ''.join(str(ord(c) - ord('a') + 1) for c in s)
+
+        # Perform the transformation k times
+        for _ in range(k):
+            # Sum the digits of the current numeric string
+            numeric_sum = sum(int(digit) for digit in numeric_string)
+            numeric_string = str(numeric_sum)
+        
+        return int(numeric_string)
+
+class Solution:
+    def getLucky(self, s: str, k: int) -> int:
+        converted_string = ''.join([str(ord(c) - ord('a') + 1) for c in s])
+
+        while k > 0:
+            sum = 0
+            for c in converted_string:
+                sum += int(c)
+            k -= 1
+            converted_string = str(sum)
+            
+        return int(converted_string)
+```
+![alt text](image-15.png)
+We can hover over the function in IDEs and get the documentation from the docstring
 
 ## 4. Make parameters to be mandatorily passed as named, i.e. enforcing keyword arguement function invocation behavior
 ```python
