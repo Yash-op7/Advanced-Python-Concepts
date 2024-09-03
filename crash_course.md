@@ -289,4 +289,29 @@ for i, (av, bv) in enumerate(zip(a, b)):
 7. Don't use time.time() to measure how fast your code runs, instead use:
 ![alt text](image.png)
 
-8.
+8. Learn pandas and numpy for any math operations
+9. Learn how to use the built in logging library
+10. know that python is compiled to the byte code level (not machine code level) and is then interpreted by the python interpreter
+11. follow pep8
+![alt text](image-1.png)
+
+# Type Annotations in Python
+these exist to show errors in the IDE, but even if you do something that violates the type rule the code won't give an error, these are just for the IDE to show errors due to mismatching types
+![alt text](image-2.png)
+
+# Constants
+same as type annotations you can modify these and run, these only help in the IDE
+![alt text](image-3.png)
+
+# Better Functions
+![alt text](image-4.png)
+The above function returns nothing and accepts a string.
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+![alt text](image-7.png)
+dunder methods for string representation of obj and adding two objects, and how to use type annotations in methods for objects of the same class using `Self` by importing `from typing import Self`
+
+# 5 Good Python Habits
