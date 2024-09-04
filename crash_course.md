@@ -728,8 +728,9 @@ d['a'] += 1
 
 `sorted_by_values = dict(sorted(d.items(), key=lambda item: item[1]))`
 
-- list to dictionary shortcut:
+- ⭐ List to and from dictionary conversions shortcuts:
 ```py
+⭐ Lists to Dict
 l = [('a', 2), ('b', 3)]
 print(dict(l))
 # Output: {'a': 2, 'b': 3}
@@ -741,7 +742,31 @@ values = [1, 2, 3]
 
 my_dict = dict(zip(keys, values))
 # Output: {'a': 1, 'b': 2, 'c': 3}
+
+⭐ Dict to lists
+print(list(my_dict))
+print(list(my_dict.items()))
+print(list(my_dict.values()))
+
+# Output:
+# ['a', 'b', 'c']
+# [('a', 1), ('b', 2), ('c', 3)]
+# [1, 2, 3]
 ```
+
+## 5. Set points:
+- `.discard(x)` method: Same as remove but does not throw KeyError if not present:
+```py
+s = {1, 2, 3}
+s.remove(2)   # Removes 2, raises KeyError if not present
+s.discard(4)  # Does nothing if 4 is not present
+```
+- `.pop()`: Removes randomly
+```py
+s = {1, 2, 3}
+element = s.pop()  # Removes and returns an arbitrary element
+```
+- **Performance**: Sets are implemented as hash tables, so operations like adding elements, checking membership, and removing elements generally have an average time complexity of O(1).
 
 ## `for - else` and `while - else` loops
 When a for loop doesn't break, the else block is executed.
