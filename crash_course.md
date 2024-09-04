@@ -781,5 +781,8 @@ for n in range(2, 10):
 	       print(n, 'is a prime number')      
 ```
 
+# 10 advanced features:
+## 1. Advanced Unpacking:
+![alt text](image-16.png)
 
 # Encapuslation
