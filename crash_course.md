@@ -697,11 +697,26 @@ a = {"a": 1, "b": 2}
 b = {"c": 3, "d": 4}
 
 merged = a | b
+# OR
+merged2 = {**a, **b}
 ```
 
 ## 5. Dict Methods:
 ```python
 counts = {}
 counts.setdefault(word, 0)
+```
+
+## `for - else` and `while - else` loops
+When a for loop doesn't break, the else block is executed.
+```py
+for n in range(2, 10):
+	   for x in range(2, n):
+	       if n % x == 0:
+	           print(n, 'equals', x, '*', n//x)
+	           break
+	   else:
+	       # loop fell through without finding a factor
+	       print(n, 'is a prime number')      
 ```
 # Encapuslation
