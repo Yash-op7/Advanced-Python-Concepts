@@ -1,8 +1,8 @@
 def count_email_domains(emails: list[str], urls: list[str]) -> dict[str, int]:
     """
     Given a list of emails and URLs, returns a dictionary of count of emails per URL domain.
-    :param emails: list[str]
-    :param urls: list[str]
+    :param emails: list[str]: A list of emails to be mapped
+    :param urls: list[str]; A list of URLs corresponding to domains
     :return emails_per_url_domain: dict[str, int]
     """
     emails_per_url_domain = {url:0 for url in urls}

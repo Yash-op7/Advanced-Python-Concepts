@@ -654,5 +654,18 @@ for _ in range(k):
 - for _ in range(k):
         numeric_string = str(sum(map(int, numeric_string)))
 
+# Cool Tricks and functions
+## 1. `max(iterable, key=function, default=obj)`
+2 ways to use it:
+1. Either pass a list of numbers and an optional key function and get the maximum based on the maximum score decided by the function
+2. Or pass an iterable and an optional function, the function is applied to each item in the iterable and the corresponding score is used to find the max
+```python
+# Example of 1.
+print(max(1, 2, 3, 4, 5, 6, 7, 8, key=lambda x: -1*x))
+
+# Example of 2.
+a = [1, 2, 3, 4, 2, 2, 3, 1, 4, 4, 4]
+print(max(set(a), key = a.count))
+```
 
 # Encapuslation
