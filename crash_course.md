@@ -784,5 +784,14 @@ for n in range(2, 10):
 # 10 advanced features:
 ## 1. Advanced Unpacking:
 ![alt text](image-16.png)
+Also:
+`a, *b, c = [1, 2,3 ,4, 5]`
+![alt text](image-17.png)
 
+## 2. Iterators:
+- An iterator is simply a python class that contains 2 dunder methods: `__iter__()` and `__next__()`
+- An iterator is something that can provide a sequence of values to us.
+- A range object is not an iterator directly but can be converted using `iter(range(5))`, the `iter()` function
+- the `iter()` function sets up the iterator and intiailizes all the values.
+- the `next()` function yields the next value in the sequence.
 # Encapuslation
