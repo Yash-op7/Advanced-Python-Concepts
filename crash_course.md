@@ -691,7 +691,8 @@ a, b* = 1, 2, 3
 print(a, b)
 # Output: 1 [2, 3]
 ```
-## 4. Merging Dicts:
+## 4. Dictionary points
+### Merging dictionaries
 ```python
 a = {"a": 1, "b": 2}
 b = {"c": 3, "d": 4}
@@ -700,11 +701,46 @@ merged = a | b
 # OR
 merged2 = {**a, **b}
 ```
-
-## 5. Dict Methods:
+### Useful Methods:
+- `setdefault(key, default_value)`:
 ```python
 counts = {}
 counts.setdefault(word, 0)
+```
+- `get(key, default_value)` - avoiding `KeyError`:
+```py
+d = {'a': 1, 'b': 2}
+print(d.get('c', 0))    # Output: 0 (default value)
+```
+-`defaultdict(type)`:
+
+this automatically initializes a default value for keys that are accessed but do not yet exist in the dictionary.
+```py
+d = defaultdict(int)  # Creates a defaultdict with int() as the default factory (initializes to 0)
+d['a'] += 1
+```
+- dictionary views:
+    - `.keys` -> Default
+    - `.items`
+    - `.values`
+
+- dictionary sortings:
+
+`sorted_by_values = dict(sorted(d.items(), key=lambda item: item[1]))`
+
+- list to dictionary shortcut:
+```py
+l = [('a', 2), ('b', 3)]
+print(dict(l))
+# Output: {'a': 2, 'b': 3}
+# Also works with l = [[1, 2], [2, 3]]
+
+# Therefore it can be used like this if you have 2 lists
+keys = ['a', 'b', 'c']
+values = [1, 2, 3]
+
+my_dict = dict(zip(keys, values))
+# Output: {'a': 1, 'b': 2, 'c': 3}
 ```
 
 ## `for - else` and `while - else` loops
@@ -719,4 +755,6 @@ for n in range(2, 10):
 	       # loop fell through without finding a factor
 	       print(n, 'is a prime number')      
 ```
+
+
 # Encapuslation
