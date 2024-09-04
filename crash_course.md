@@ -668,4 +668,40 @@ a = [1, 2, 3, 4, 2, 2, 3, 1, 4, 4, 4]
 print(max(set(a), key = a.count))
 ```
 
+## 2. `any(iterable)` & `all(iterable)`
+`any` -> Returns true if at least one element in an iterable is a truthy value.
+```python
+my_list = [1, 3, 7, 2]
+result = any(x > 5 for x in my_list)
+result = all(x > 5 for x in my_list)
+
+# From the Documentation:
+def any(iterable):
+    for element in iterable:
+        if element:
+            return True
+    return False
+```
+
+## 3. Swapping Values Without a Temporary Variable
+```python
+a, b = b, a
+# and
+a, b* = 1, 2, 3
+print(a, b)
+# Output: 1 [2, 3]
+```
+## 4. Merging Dicts:
+```python
+a = {"a": 1, "b": 2}
+b = {"c": 3, "d": 4}
+
+merged = a | b
+```
+
+## 5. Dict Methods:
+```python
+counts = {}
+counts.setdefault(word, 0)
+```
 # Encapuslation
