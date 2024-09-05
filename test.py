@@ -1,14 +1,22 @@
-class Person:
+import this
 
-    def __init__(self, name: str, age: int) -> None:
-        self.__name = name
-        self.__age = age
+# print(this.s)
+linebreak = '-'*100
+print(linebreak)
+mappings = dict(this.d)
+mappings[' '] = ' '
+mappings[','] = ','
+mappings['\n'] = '\n'
+mappings['.'] = '.'
+mappings['-'] = '-'
+mappings["'"] = "'"
+mappings['"'] = '"'
+mappings['!'] = '!'
+mappings['*'] = '*'
 
 
-def main() -> None:
-    p1 = Person('Tom', 59)
-    # print(p1.__name)
-    print("the brown fox is quick".split(sep=' ', maxsplit=2))
+encoded_message = this.s
 
-if __name__=='__main__':
-    main()
+decoded_message = [mappings[char] if char != ' ' else ' ' for char in encoded_message]
+
+print(''.join(decoded_message))

@@ -780,6 +780,17 @@ for n in range(2, 10):
 	       # loop fell through without finding a factor
 	       print(n, 'is a prime number')      
 ```
+## Tuples creation, concatenation to create new tuples, and dynamic tuple type annotations:
+```py
+def func(a: int) -> tuple[...]:         # return can be tuple[...]
+    first = tuple((a, ) * 4)            # dynamic tuple initialization
+    second = (2*a, ) * 3                
+    return first + second               # Tuple addition
+
+print(func(10))
+# Output: (10, 10, 10, 10, 20, 20, 20)
+```
+
 
 # 10 advanced features:
 ## 1. Advanced Unpacking:
@@ -794,4 +805,16 @@ Also:
 - A range object is not an iterator directly but can be converted using `iter(range(5))`, the `iter()` function
 - the `iter()` function sets up the iterator and intiailizes all the values.
 - the `next()` function yields the next value in the sequence.
+- these two functions are called implicitly in a for loop when we do something like `for x in range(3)`, the for loop continues until a `StopIteration` exception is raised by `next()`
+
+## 3. Generators:
+- A modern version of iterators
+- they work by using a yield keyword inside a python function, the yield keywords allows you to pause the execution of the function at a certain point and return a value, then resume execution from that point on the next invocation for the function to generate and return the next value.
+![](image-18.png)
+
+By using generators the next() function is implemented for us by python, we can invoke it like an iterator by writing next(counter) (in the example)
+
+## 4. Iterators, Iterables and Generators
+
+
 # Encapuslation
