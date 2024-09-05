@@ -864,6 +864,24 @@ def main() -> None:
 `From the Git for Professionals Tutorial on FCC YT 2024-09-05 20:33:04`
 
 ## 1. The Perfect Commit
+    1. Add the right changes
+        - Only include changes from a single topic
+        - Rather than cram all the changes in the next commit
+        - You can use git staging area to selectively select only the particular parts of particular files for your next commit
+        - `git diff file_name`, `git add -p file_name` for patch level decisions
+    2. Compose a good commit message
+        1. Subject = concise summary
+        2. Body = more detailed explaination
+            - What is now different than before?
+            - What is the reason for the change?
+            - Is there anything to watch out for / anything particularly remarkable?
+        - Process:
+            `git commit` - opens an editor, inside which first write a concise subject then if you add an empty line after the subject, git knows that we are now writing the body of the message
+        - Example:
+
+        
+![alt text](image-19.png)
+        
 
 
 `Commit message: "Implemented longestConsecutive function to find the longest sequence of consecutive numbers. Used set for O(1) lookups. Added handling for edge cases and optimized the solution with O(n) time complexity."`
