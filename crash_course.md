@@ -816,5 +816,57 @@ By using generators the next() function is implemented for us by python, we can 
 
 ## 4. Iterators, Iterables and Generators
 
+# Ideal Docstring Template (according to the Google Python Style Guide)
+```python
+def fetch_smalltable_rows(
+    table_handle: smalltable.Table,
+    keys: Sequence[bytes | str],
+    require_all_keys: bool = False,
+) -> Mapping[bytes, tuple[str, ...]]:
+    """Fetches rows from a Smalltable.
+
+    Retrieves rows pertaining to the given keys from the Table instance
+    represented by table_handle.  String keys will be UTF-8 encoded.
+
+    Args:
+        table_handle: An open smalltable.Table instance.
+        keys: A sequence of strings representing the key of each table
+          row to fetch.  String keys will be UTF-8 encoded.
+        require_all_keys: If True only rows with values set for all keys will be
+          returned.
+
+    Returns:
+        A dict mapping keys to the corresponding table row data
+        fetched. Each row is represented as a tuple of strings. For
+        example:
+
+        {
+            b'Serak': ('Rigel VII', 'Preparer'),
+            b'Zim': ('Irk', 'Invader'),
+            b'Lrrr': ('Omicron Persei 8', 'Emperor')
+        }
+
+        Returned keys are always bytes.  If a key from the keys argument is
+        missing from the dictionary, then that row was not found in the
+        table (and require_all_keys must have been False).
+
+    Raises:
+        IOError: An error occurred accessing the smalltable.
+    """
+    print("hello world")
+
+def main() -> None:
+    fetch_smalltable_rows()
+
+```
+
+# Writing a perfect commit message:
+`From the Git for Professionals Tutorial on FCC YT 2024-09-05 20:33:04`
+
+## 1. The Perfect Commit
+
+
+`Commit message: "Implemented longestConsecutive function to find the longest sequence of consecutive numbers. Used set for O(1) lookups. Added handling for edge cases and optimized the solution with O(n) time complexity."`
+
 
 # Encapuslation
