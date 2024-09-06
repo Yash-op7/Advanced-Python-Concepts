@@ -569,6 +569,18 @@ Output: `('a+b', '=', 'c')`
 6. `str.split(sep=' ', maxsplit=2)`
 
 # Important points:
+- use `string.isdecimal()` for checking if all the characters are digits between 0 and 9 and len(string)>0
+- for checking if a string represents a float:
+    ```py
+    def is_float(value):
+        try:
+            float(value)
+            return True
+        except ValueError:
+            return False
+
+    ```
+
 - `f string` trick:
 ```python
 quantity = 239

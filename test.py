@@ -4,7 +4,7 @@ def is_input_valid(ops: list[str]) -> bool:
     for value in ops:
         if value in expected_values:
             continue
-        if not value.isdecimal():
+        if not value.is:
             return False
     return True
 
