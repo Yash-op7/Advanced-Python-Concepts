@@ -881,10 +881,23 @@ def main() -> None:
 
         
 ![alt text](image-19.png)
-        
-
 
 `Commit message: "Implemented longestConsecutive function to find the longest sequence of consecutive numbers. Used set for O(1) lookups. Added handling for edge cases and optimized the solution with O(n) time complexity."`
 
+## `isinstance()` method:
+```py
+x: int = 5
+if isinstance(x, (str, int)):
+    print(x, 'is a string or an int')
+```
+
 
 # Encapuslation
+
+# 3 laws of writing readable code:
+## 1. Avoid deep nesting:
+    - use inversions
+    - merge related if statements
+    - extraction: extract seperate code blocks into their own functions
+## 2. Avoid duplicate code, instead put them in their own functions
+## 3. Use meaningful names
