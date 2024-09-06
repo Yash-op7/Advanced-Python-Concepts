@@ -903,6 +903,16 @@ if isinstance(x, (str, int)):
     print(x, 'is a string or an int')
 ```
 
+## lambdas and sum function with lists:
+```py
+    a = [[1, 2], [[29, [], [[[[45]]]]], 3, 4], [5, 6]]
+    flatten_lambda = lambda l: sum((flatten_lambda(sub) if isinstance(sub, list) else [sub] for sub in l), [])
+    l = flatten_lambda(a)
+```
+
+## Union and any:
+`list[Union[int, any]])`
+
 
 # Encapuslation
 
@@ -913,6 +923,51 @@ if isinstance(x, (str, int)):
     - extraction: extract seperate code blocks into their own functions
 ## 2. Avoid duplicate code, instead put them in their own functions
 ## 3. Use meaningful names
+
+# Common Python Exceptions:
+## 1. `KeyError`:
+- When a dictionary is not found
+## 2. `IndexError`:
+- When a list/tuple is accessed with an invalid indexed
+## 3. `StopIteration`:
+- Raised by the `next()` function to indicate that an iterator has no more items.
+## 4. `ValueError`:
+- When a function receives an arguement of an inappropriate value.
+- `int('abc')`
+## 5. `TypeError`:
+- Raised when an operation or function is applied to an object of an inappropriate type.
+- `'hello' + 5  # Raises TypeError`
+## 6. `AttributeError`:
+- Raised when an invalid attribute reference or assignment is attempted.
+- Example: Accessing a non-existent attribute of an object.
+```py
+lst = [1, 2, 3]
+lst.append  # Correct
+lst.push  # Raises AttributeError
+```
+## 7. `ZeroDivisionError`:
+- Raised when attempting to divide a number by zero.
+## 8. `NameError`:
+
+- Raised when a local or global name is not found.
+
+## 9. `RuntimeError`:
+
+- A generic error raised when no other error applies, usually for logical runtime issues.
+
+Some other notable ones are:
+- FileNotFoundError
+- ImportError
+- PermissionError
+- AssertionError
+`assert 2 + 2 == 5  # Raises AssertionError`
+- IndentationError
+- EOFError
+- OSError
+- MemoryError
+- OverflowError
+- RecursionError
+
 
 
 # Coding Test tips:
