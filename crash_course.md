@@ -901,3 +901,19 @@ if isinstance(x, (str, int)):
     - extraction: extract seperate code blocks into their own functions
 ## 2. Avoid duplicate code, instead put them in their own functions
 ## 3. Use meaningful names
+
+
+# Coding Test tips:
+
+## 1. Create a Plan:
+**Planning Before Coding**: Break down the problem before writing code. In comments:
+
+    - Explain the problem in your own words.
+    - Write down a step-by-step approach to solve it (pseudo-code).
+    - Mention edge cases and how you’ll handle them.
+```py
+# #Plan:
+# 1. Create a set from the input list for O(1) lookups.
+# 2. Iterate over the set and find consecutive sequences.
+# 3. Track the longest sequence encountered.
+```
