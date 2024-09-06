@@ -1,20 +1,20 @@
+# Flatten a nested list
+# [[1, 2], [3, 4], [5, 6]]
 
-def is_input_valid(ops: list[str]) -> bool:
-    expected_values: set[str] = {'+', 'D', 'C'}
-    for value in ops:
-        if value in expected_values:
-            continue
-        if not value.is:
-            return False
-    return True
+from typing import Union
 
-def perfCalOps(ops: list[str]) -> int:
-    return 10
+def flatten(nested_list: Union[int, any]) -> list[int]:
+    result = []
+    for val in nested_list:
+        if isinstance(val, int):
+            result.append(val)
+        else:
+            result.extend(flatten(val))
+    return result
 
-def main() -> None:
-    ops: list[str] = ['24', '+', "D", 'C', '4', '51']
-    assert is_input_valid(ops), 'Invalid input'
-    print(perfCalOps(ops))
+def main():
+    a = [[1, 2], [[29, [], [[[[45]]]]], 3, 4], [5, 6]]
+    print(flatten(a))
 
-if __name__ == '__main__':
+if __name__=='__main__':
     main()
