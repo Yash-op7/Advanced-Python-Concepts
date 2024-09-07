@@ -1,19 +1,18 @@
+import unittest
 
+def add(a, b):
+    return a + b
 
-def solve():
-    # print most freq char in a str
-    s = 'abiudfjnsafsajnfdxuichvijoneknsafklansdfnapsdfniwenfsdakfn'
-    cnt = {}
-    for c in s:
-        cnt.setdefault(c, 0)
-        cnt[c] += 1
-    print(cnt)
-    maximum_frequent_alpha_char = max({c for c in s if c.isalpha()}, key=s.count)
-    print(f'{maximum_frequent_alpha_char = }')
+class TestAddFunction(unittest.TestCase):
+    def test_add_positive_numbers(self):
+        self.assertEqual(add(1, 2), 3)
 
-def main():
-    solve()
+    def test_add_negative_numbers(self):
+        self.assertEqual(add(-1, -2), -3)
 
+    def test_add_mixed_numbers(self):
+        self.assertEqual(add(1, -2), -1)
+        self.assertEqual(add(-1, 2), 1)
 
-if __name__=='__main__':
-    main()
+if __name__ == '__main__':
+    unittest.main()
