@@ -1122,6 +1122,133 @@ print(smallest)  # Output: 1
 print(heap)      # Output: [5, 10, 30]
 ```
 
+### 3. `heapq.heapify(list_only)`
+```py
+grades = [110, 25, 38, 49, 20, 95, 33, 87, 80, 90]
+heapq.heapify(grades)
+print(grades)
+# Output: [20, 25, 33, 49, 90, 95, 38, 87, 80, 110] (min-heap)
+```
+### 4. `heapq.pushpop(heap, item)`: Pushes a new item onto the heap and then pops the smallest item, all in one atomic operation. 
+⭐️ More efficient than pushing followed by popping separately.
+
+
+```py
+print(heapq.heappushpop(heap, 8))  # Pushes 8, pops the smallest item (5)
+# Output: 5
+print(heap)  # Output: [8, 10, 30]
+```
+
+### 5. `heapq.heapreplace(heap, item)`: Pops and returns the smallest item from the heap, and then pushes a new item onto the heap.
+⭐️ More efficient than popping and then pushing separately, but note that it always pops the smallest element, regardless of the new item’s value.
+```py
+print(heapq.heapreplace(heap, 15))  # Pops the smallest (8), then pushes 15
+# Output: 8
+print(heap)  # Output: [10, 15, 30]
+```
+
+### 6. `heapq.nsmallest(n, iterable, key=None)` && `heapq.nlargest(n, iterable, key=None)`
+
+The heapq module also provides two helpful methods to find the largest or smallest items from an iterable without converting it to a heap.
+```py
+print(heapq.nsmallest(4, grades))
+# Output: [20, 25, 33, 38]
+
+grades = [110, 25, 38, 49, 20, 95, 33, 87, 80, 90]
+print(heapq.nlargest(3, grades))
+# Output: [110, 95, 90]
+```
+
+## Tricks:
+### 1. Implementing max heap using min heap:
+```py
+max_heap = []
+heapq.heappush(max_heap, -10)
+heapq.heappush(max_heap, -20)
+heapq.heappush(max_heap, -15)
+print(-heapq.heappop(max_heap))  # Output: 20 (since it's negated, it returns the largest)
+```
+### 2. Maintaining a constant size heap as you loop through a list:
+```py
+nums = [12, 3, 5, 7, 19, 26, 18, 8]
+top3 = []
+for num in nums:
+    if len(top3) < 3:
+        heapq.heappush(top3, num)
+    else:
+        heapq.heappushpop(top3, num)
+
+print(top3)  # Output: [18, 19, 26] (top 3 largest elements)
+```
+### 3. Merging Sorted Iterables
+```py
+iter1 = [1, 3, 5, 7]
+iter2 = [2, 4, 6, 8]
+
+merged = heapq.merge(iter1, iter2)
+print(list(merged))
+# Output: [1, 2, 3, 4, 5, 6, 7, 8]
+```
+### 4. Custom nlargest or nsmallest using the key parameter:
+```py
+students = [
+    {'name': 'John', 'age': 23, 'grade': 90},
+    {'name': 'Alice', 'age': 21, 'grade': 85},
+    {'name': 'Bob', 'age': 22, 'grade': 88}
+]
+
+# Find the student with the highest grade
+best_student = heapq.nlargest(1, students, key=lambda x: x['grade'])[0]
+print(best_student)
+# Output: {'name': 'John', 'age': 23, 'grade': 90}
+```
+## Time Complexity Analysis:
+Time Complexity of Heap Operations
+
+    - heapq.heappush(heap, item): O(log n)
+    - heapq.heappop(heap): O(log n)
+    - heapq.heapify(x): O(n)
+    - heapq.nlargest(n, iterable) OR heapq.nsmallest(n, iterable): O(n log n), as they internally sort a heap to find the largest or smallest elements.
+
+# General Tricks:
+## Dict zip:
+```py
+# Python code to demonstrate use of zip.
+import heapq
+
+stocks = {
+    'Goog' : 520.54,
+    'FB' : 76.45,
+    'yhoo' : 39.28,
+    'AMZN' : 306.21,
+    'APPL' : 99.76
+    }
+
+zipped_1 = zip(stocks.values(), stocks.keys())
+
+# sorting according to values
+print(sorted(zipped_1))
+```
+## Map function:
+```py
+# Python code to apply a function on a list
+income = [10, 30, 75]
+
+def double_money(dollars):
+    return dollars * 2
+
+new_income = list(map(double_money, income))
+print(new_income)
+```
+
+### `reduce(function_with_2_args, iterable, initialized_value)`: The reduce function appllies a binary function (a function that takes two arguments) cumulatively to the items of an iterable, from left to right, so as to reduce the iterable to a single value.
+```py
+numbers = [1, 2, 3]
+
+result = reduce(lambda x, y: x*y, numbers, 10)
+
+print(result)  # Output will be 60 (i.e., 10*1*2*3)
+```
 
 # Coding Test tips:
 
