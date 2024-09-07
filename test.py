@@ -4,7 +4,16 @@ def add(a, b):
     return a + b
 
 class TestAddFunction(unittest.TestCase):
-    
+
+    @classmethod
+    def setUpClass(cls):
+        print(f"Setting up class {cls.__name__}...")
+
+    @classmethod
+    def tearDownClass(cls):
+        print(f"Tearing down class {cls.__name__}...")
+
+
     def setUp(self):
         print(f"Setting up for {self._testMethodName}...")
 
