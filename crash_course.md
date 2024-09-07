@@ -960,7 +960,9 @@ Some other notable ones are:
 - ImportError
 - PermissionError
 - AssertionError
-`assert 2 + 2 == 5  # Raises AssertionError`
+```py 
+assert 2 + 2 == 5  # Raises AssertionError
+```
 - IndentationError
 - EOFError
 - OSError
