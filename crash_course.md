@@ -474,8 +474,7 @@ def get_users() -> dict[int, str]:
 ```python
 class Solution:
     def getLucky(self, s: str, k: int) -> int:
-        """
-        Convert the string s into an integer by replacing each letter with its position in the alphabet.
+        """Convert the string s into an integer by replacing each letter with its position in the alphabet.
         Perform the digit sum transformation k times and return the final result.
 
         :param s: Input string consisting of lowercase English letters.
@@ -604,8 +603,7 @@ The following types are immutable and any attempt to modify their objects result
 - Docstrings, example:
 ```python
 def binary_search(arr: list[int], target: int) -> int:
-    """
-    Perform binary search on a sorted list.
+    """Perform binary search on a sorted list.
 
     :param arr: A list of integers sorted in ascending order.
     :param target: The integer value to search for.
@@ -699,7 +697,7 @@ def any(iterable):
 ```python
 a, b = b, a
 # and
-a, b* = 1, 2, 3
+a, *b = 1, 2, 3
 print(a, b)
 # Output: 1 [2, 3]
 ```

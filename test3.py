@@ -1,7 +1,12 @@
 def main() -> None:
-    s = 'abcd'
-    print(x := s.split(sep='b'))
-    print(' '.join(x))
+    a=2
+    b=3
+    a, b = b, a
+    # and
+    a, *b = 1, 2, 3
+    print(a, b)
+    # Output: 1 [2, 3]
+
 
 
 main()
