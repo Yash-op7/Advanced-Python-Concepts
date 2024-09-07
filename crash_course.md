@@ -1241,7 +1241,7 @@ new_income = list(map(double_money, income))
 print(new_income)
 ```
 
-### `reduce(function_with_2_args, iterable, initialized_value)`: The reduce function appllies a binary function (a function that takes two arguments) cumulatively to the items of an iterable, from left to right, so as to reduce the iterable to a single value.
+### `reduce(function_with_2_args, iterable, initidalized_value)`: The reduce function appllies a binary function (a function that takes two arguments) cumulatively to the items of an iterable, from left to right, so as to reduce the iterable to a single value.
 ```py
 numbers = [1, 2, 3]
 
@@ -1264,3 +1264,8 @@ print(result)  # Output will be 60 (i.e., 10*1*2*3)
 # 2. Iterate over the set and find consecutive sequences.
 # 3. Track the longest sequence encountered.
 ```
+
+# Further studying: Advanced Python
+![alt text](image-20.png)
+![alt text](image-21.png)
+`https://medium.com/@himanshusingh2719/the-art-of-python-advanced-techniques-for-elegant-code-98422952ef0c#2925`
