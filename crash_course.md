@@ -970,6 +970,157 @@ assert 2 + 2 == 5  # Raises AssertionError
 - OverflowError
 - RecursionError
 
+# `Counter`:
+The Counter class from Python's collections module is a powerful tool for counting hashable objects. It is essentially a dictionary subclass designed for counting hashable items in an iterable. Each element is stored as a key, and its count is stored as the value.
+
+## 1. Initialization:
+```python
+from collections import Counter
+
+# Example with a list
+data = ['apple', 'banana', 'apple', 'orange', 'banana', 'apple']
+counter = Counter(data)
+print(counter)
+# Output: Counter({'apple': 3, 'banana': 2, 'orange': 1})
+
+# Example with a string
+text = "mississippi"
+char_counter = Counter(text)
+print(char_counter)
+# Output: Counter({'i': 4, 's': 4, 'p': 2, 'm': 1})
+
+# From a dict
+counts = {'apple': 3, 'banana': 2, 'orange': 1}
+counter = Counter(counts)
+print(counter)
+# Output: Counter({'apple': 3, 'banana': 2, 'orange': 1})
+
+# From keyword args
+counter = Counter(apples=3, bananas=2, oranges=1)
+print(counter)
+# Output: Counter({'apples': 3, 'bananas': 2, 'oranges': 1})
+```
+## 2. Access:
+
+```py
+print(counter['apples'])  # Output: 3
+print(counter['pears'])   # Output: 0 (returns 0 for missing keys)
+
+elements = list(counter.elements())
+print(elements)
+# Output: ['apples', 'apples', 'apples', 'apples', 'apples', 'bananas', 'bananas', 'pears', 'pears']
+
+common = counter.most_common(2)
+print(common)
+# Output: [('apples', 5), ('bananas', 2)]
+
+```
+
+## 3. Updation:
+### `.update()`: like addition
+```py
+# Updating with an iterable
+counter.update(['apples', 'pears', 'pears'])
+print(counter)
+# Output: Counter({'apples': 4, 'bananas': 3, 'oranges': 1, 'pears': 2})
+
+# Updating with another Counter
+counter.update({'apples': 2, 'bananas': -1})
+print(counter)
+# Output: Counter({'apples': 6, 'bananas': 2, 'pears': 2, 'oranges': 1})
+```
+### `.subtract()`: subtraction -
+```py
+counter.subtract(['apples', 'oranges'])
+print(counter)
+# Output: Counter({'apples': 5, 'bananas': 2, 'pears': 2, 'oranges': 0})
+```
+### 4. Counter Arithmetic
+```py
+c1 = Counter(a=3, b=1)
+c2 = Counter(a=1, b=2, c=3)
+
+# Addition: Combines counts by adding the counts for each element.
+c_sum = c1 + c2
+print(c_sum)
+# Output: Counter({'a': 4, 'c': 3, 'b': 3})
+
+# Subtraction: Subtracts counts, keeping only positive counts.
+c_sub = c1 - c2
+print(c_sub)
+# Output: Counter({'a': 2})
+
+# Intersection (&): Keeps the minimum counts of common elements.
+c_intersect = c1 & c2
+print(c_intersect)
+# Output: Counter({'a': 1, 'b': 1})
+
+# Union (|): Keeps the maximum counts of elements.
+c_union = c1 | c2
+print(c_union)
+# Output: Counter({'a': 3, 'c': 3, 'b': 2})
+```
+
+## 4. Deletion:
+```py
+del counter['apples']
+print(counter)
+# Output: Counter({'bananas': 2, 'pears': 1, 'oranges': 0})
+
+counter['bananas'] = 0
+print(counter)
+# Output: Counter({'pears': 1, 'bananas': 0, 'oranges': 0})
+```
+
+## 5. Tricks:
+### 1. Remove negative counts: `counter += Counter()`
+```py
+arr = [1, 3, 4, 1, 2, 1, 1, 3, 4, 3, 5, 1, 2, 5, 3, 4, 5]
+counter = Counter(arr)
+
+counter.update({6:-3})
+
+print(counter)
+
+counter += Counter()
+
+print(counter)
+# Output:
+# Counter({1: 5, 3: 4, 4: 3, 5: 3, 2: 2, 6: -3})
+# Counter({1: 5, 3: 4, 4: 3, 5: 3, 2: 2})
+```
+### 2. To get the sum of all counts: `total_counts = sum(counter.values())`
+### 3. To convert to regular dict: `regular_dict = dict(counter)`
+
+## 6. Limitations:
+1. **Hashable Elements**: Elements must be hashable (e.g., strings, numbers, tuples). You cannot use unhashable types like lists or dictionaries as keys.
+
+2. **Negative Counts**: While Counter supports negative counts, they may not make sense in certain contexts.
+
+3. **Not Ordered**: In Python versions before 3.7, Counter objects are not ordered. From Python 3.7 onward, dictionaries (and thus Counter) preserve insertion order, but methods like most_common() are still useful for sorting by counts.
+
+# Heaps:
+A heap is a data structure commonly used for priority queues, where the smallest or largest element can be retrieved quickly. Python’s heapq module uses a min-heap by default, where the smallest element is always at the root.
+
+## Core heap operations:
+### 1. `heapq.heappush(heap, value)`
+```py
+heap = []
+heapq.heappush(heap, 10)
+heapq.heappush(heap, 5)
+heapq.heappush(heap, 30)
+heapq.heappush(heap, 1)
+print(heap)  
+# Output: [1, 5, 30, 10] (min-heap)
+```
+### 2. `heapq.heappop(heap)`: Pops and returns the smallest item from the heap, maintaining the heap property. If the heap is empty, ⭐️ `IndexError` is raised.
+
+
+```py
+smallest = heapq.heappop(heap)
+print(smallest)  # Output: 1
+print(heap)      # Output: [5, 10, 30]
+```
 
 
 # Coding Test tips:
