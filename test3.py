@@ -1,11 +1,6 @@
 def main() -> None:
-    a=2
-    b=3
-    a, b = b, a
-    # and
-    a, *b = 1, 2, 3
-    print(a, b)
-    # Output: 1 [2, 3]
+    a, (b, c) = ['bird', (1, 2)]
+    print(a, b, c)
 
 
 
